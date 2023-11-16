@@ -300,13 +300,17 @@ while running:
         pygame.draw.ellipse(screen, (0, 0, 0), (x + daniel_pupil_x, 
                y + daniel_pupil_y, 
                 daniel_pupil_radius, 
-                daniel_pupil_radius))
+                daniel_pupil_radius)) 
     
     elif daniel_stare is True:
         pygame.draw.ellipse(screen, (0, 0, 0), (x + daniel_pupil_x, 
                                                y + daniel_pupil_y, 
                                                 daniel_pupil_radius, 
                                                 daniel_pupil_radius))
+        for _ in range(5):
+            pygame.draw.circle(screen, (100, 0, 0), 
+                              (x + 340 - random.randint(0,40), 
+                               y + 300 - random.randint(0,40)), 5)
         if daniel_stare_count == 0:
             daniel_stare = False
             daniel_action_selection = True
@@ -375,6 +379,7 @@ while running:
                 daniel_blink_open = False
                 daniel_blink = False
                 daniel_action_selection = True
+        
     # -------------------
     if triy1 < 240 and triy2 > 240 and ryan_closed is True:
         triy1 += 5
@@ -764,6 +769,7 @@ while running:
     if circle_y_gloria <= gloria_y + 190:
         circle_x_gloria += 1
         circle_y_gloria += 2
+    print(gloria_frames)
     gloria_frames += 1
     if gloria_frames % 130 == 0:
         circle_y_gloria = gloria_y
